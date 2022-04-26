@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { trackMatomoEvent } from '../../analytics/matomo';
 
 function Button(props) {
-  const { name, href, displayName, logo, styles, alt, icon } = props;
+  const { name, href, displayName, logo, styles, alt, icon, rel } = props;
 
   const handleClick = () => {
     const eventName = `${name}-button`;
@@ -29,7 +29,7 @@ function Button(props) {
         className={styles ? 'button' : `button button-${name}`}
         href={href}
         target={runtimeConfig?.BUTTON_TARGET || '_blank'}
-        rel="noopener noreferrer"
+        rel={rel || 'noopener noreferrer'}
         onClick={handleClick}
         style={styles ? styles : undefined}
         title={alt || displayName}
@@ -55,6 +55,7 @@ Button.propType = {
   href: string.isRequired,
   name: string.isRequired,
   order: number.isRequired,
+  rel: string.isRequired,
   logo: string,
   icon: string,
   styles: object,
