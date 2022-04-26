@@ -381,6 +381,7 @@ function Home(props) {
                 <Button
                   name="mastodon"
                   href={runtimeConfig.MASTODON}
+                  rel="me noopener noreferrer"
                   displayName="Mastodon"
                   logo={mastodonLogo}
                   order={buttonOrder('MASTODON')}
